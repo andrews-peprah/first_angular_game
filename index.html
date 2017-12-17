@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Workout</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+</head>
+<body ng-app="AngularTraining" ng-controller="PagesController" style="padding-top:25vh;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<center>
+					<div>Correct letters chosen<br><h1 class="text-success"><span ng-repeat="letter in correctLetters">{{letter}}</span></h1></div>
+				</center>
+			</div>
+			<div class="col-md-4">
+				<center>
+					<button onclick="location.reload();" class="btn btn-primary" >New Game</button><br><br>
+					<div><b>Guesses left:</b><br>{{maxGuesses}}</div>
+					<br><br>
+					<div>You have guessed:<br><h1>{{displayWord}}</h1></div>
+				</center>
+				<div>
+					<div>
+						<input type="text" name="guess" ng-model="input.letter" my-enter="letterChosen()" class="form-control" style="text-align: center;" maxlength= 1 /><br>
+						<button ng-click="letterChosen()" class="btn btn-success btn-block" >Submit</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<center>
+					<div>Incorrect letters chosen<br><h1 class="text-danger"><span ng-repeat="letter in incorrectLetters">{{letter}}</span></h1></div>
+				</center>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
